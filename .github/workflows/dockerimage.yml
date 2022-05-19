@@ -25,7 +25,7 @@ jobs:
         IMAGE_TAG=jamieRowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}"
         docker build base \
           # --tag rpy2/base-ubuntu:"${{ matrix.rpy2_version }}"-"${{ matrix.ubuntu_release }}" \
-          --tag "${IMAGE_TAG}" \
+          --tag jamieRowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}" \
           # --build-arg RPY2_VERSION="${{ matrix.rpy2_version }}" \
           --build-arg UBUNTU_RELEASE="${{ matrix.ubuntu_release }}"
     - name: Push base image
