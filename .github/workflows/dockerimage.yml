@@ -23,7 +23,7 @@ jobs:
     - name: Build base image
       run: |
         docker build \
-          -t jamieRowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}" \
+          -t jamierowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}" \
           --build-arg UBUNTU_RELEASE="${{ matrix.ubuntu_release }}" \
           base
     - name: Push base image
@@ -33,14 +33,14 @@ jobs:
       run: |
         echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
         # IMAGE_TAG=rpy2/base-ubuntu:"${{ matrix.rpy2_version }}"-"${{ matrix.ubuntu_release }}"
-        IMAGE_TAG=jamieRowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}"
+        IMAGE_TAG=jamierowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}"
         docker tag "${IMAGE_TAG}" "${IMAGE_TAG}"
         docker push "${IMAGE_TAG}"
         if [ "${{ matrix.ubuntu_release }}" == "${LATEST_UBUNTU}" ]; then
           # docker tag "${IMAGE_TAG}" rpy2/base-ubuntu:latest
           # docker push rpy2/base-ubuntu:latest
-          docker tag "${IMAGE_TAG}" jamieRowen/rpy2-ubuntu:latest
-          docker push jamieRowen/rpy2-ubuntu:latest
+          docker tag "${IMAGE_TAG}" jamierowen/rpy2-ubuntu:latest
+          docker push jamierowen/rpy2-ubuntu:latest
         fi
     # - name: Build jupyter image
     #   run: |
