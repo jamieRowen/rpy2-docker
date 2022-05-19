@@ -22,8 +22,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build base image
       run: |
+        IMAGE_TAG=jamieRowen/rpy2-ubuntu:"${{ matrix.ubuntu_release }}"
         docker build base \
-          --tag rpy2/base-ubuntu:"${{ matrix.rpy2_version }}"-"${{ matrix.ubuntu_release }}" \
+          # --tag rpy2/base-ubuntu:"${{ matrix.rpy2_version }}"-"${{ matrix.ubuntu_release }}" \
+          --tag "${IMAGE_TAG}" \
           # --build-arg RPY2_VERSION="${{ matrix.rpy2_version }}" \
           --build-arg UBUNTU_RELEASE="${{ matrix.ubuntu_release }}"
     - name: Push base image
