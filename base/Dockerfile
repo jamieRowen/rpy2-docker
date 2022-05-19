@@ -5,7 +5,7 @@ MAINTAINER Laurent Gautier <lgautier@gmail.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV CRAN_MIRROR=https://cloud.r-project.org \
-    CRAN_MIRROR_TAG=-cran35
+    CRAN_MIRROR_TAG=-cran40
 
 ARG RPY2_VERSION=RELEASE_3_5_6
 ARG RPY2_CFFI_MODE=BOTH
@@ -25,5 +25,6 @@ RUN \
   && rm -rf /var/lib/apt/lists/*
 
 RUN \
-  python3 -m pip --no-cache-dir install https://github.com/rpy2/rpy2/archive/"${RPY2_VERSION}".zip && \
-  rm -rf /root/.cache
+  python3 -m pip install rpy2
+# --no-cache-dir install https://github.com/rpy2/rpy2/archive/"${RPY2_VERSION}".zip && \
+#  rm -rf /root/.cache

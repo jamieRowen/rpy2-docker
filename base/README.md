@@ -1,5 +1,7 @@
 This helps build a base rpy2 ubuntu image.
 
+Forked from rpy2/rpy2-docker and modeified to bring up to latest R version.
+
 
 ```bash
 docker build -t rpy2/base-ubuntu:master-default .
